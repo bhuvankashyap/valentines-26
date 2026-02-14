@@ -154,17 +154,23 @@
     /* Flip Cards Section */
     .cards-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 30px;
-      max-width: 1000px;
+      max-width: 900px;
       margin: 50px auto;
       padding: 0 20px;
+    }
+
+    @media (max-width: 768px) {
+      .cards-container {
+        grid-template-columns: 1fr;
+      }
     }
 
     .flip-card {
       background-color: transparent;
       width: 100%;
-      height: 300px;
+      height: 350px;
       perspective: 1000px;
       cursor: pointer;
     }
@@ -186,13 +192,15 @@
       position: absolute;
       width: 100%;
       height: 100%;
+      -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
       border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 30px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      box-sizing: border-box;
     }
 
     .flip-card-front {
@@ -205,7 +213,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(139, 79, 92, 0.3);
+      background: rgba(139, 79, 92, 0.4);
       border-radius: 20px;
     }
 
@@ -213,9 +221,10 @@
       position: relative;
       z-index: 1;
       color: white;
-      font-size: 24px;
+      font-size: 26px;
       font-weight: bold;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      margin: 0;
     }
 
     .flip-card-back {
@@ -224,6 +233,10 @@
       transform: rotateY(180deg);
       font-size: 18px;
       line-height: 1.6;
+    }
+
+    .flip-card-back p {
+      margin: 0;
     }
 
     .photo {
