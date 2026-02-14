@@ -9,15 +9,23 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      background: #0b1f3a;
-      color: white;
       font-family: "Times New Roman", serif;
       overflow-x: hidden;
+    }
+
+    /* CONTRACT PAGE - Formal Document Style */
+    #contractPage {
+      background: white;
+      color: #000;
+      min-height: 100vh;
     }
 
     h1 {
       letter-spacing: 2px;
       text-align: center;
+      font-size: 28px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
     .container {
@@ -27,15 +35,28 @@
     }
 
     .contract {
-      line-height: 1.7;
-      font-size: 18px;
+      line-height: 1.8;
+      font-size: 16px;
+      text-align: justify;
+    }
+
+    .contract p {
+      margin: 15px 0;
     }
 
     hr {
       border: 0;
-      height: 1px;
-      background: rgba(255,255,255,0.2);
+      height: 2px;
+      background: #000;
       margin: 30px 0;
+    }
+
+    .signature-line {
+      margin-top: 50px;
+      border-top: 1px solid #000;
+      padding-top: 10px;
+      display: inline-block;
+      min-width: 300px;
     }
 
     .buttons {
@@ -50,31 +71,41 @@
       font-size: 16px;
       cursor: pointer;
       margin: 10px;
-      border: 1px solid white;
-      background: transparent;
-      color: white;
+      border: 2px solid #000;
+      background: white;
+      color: #000;
       transition: all 0.2s ease;
+      font-family: "Times New Roman", serif;
+      font-weight: bold;
+      text-transform: uppercase;
     }
 
     button:hover {
-      background: white;
-      color: #0b1f3a;
+      background: #000;
+      color: white;
     }
 
     #decline {
       position: absolute;
     }
 
-    /* Celebration Page */
+    /* Celebration Page - Peach/Pink Theme */
 
     #celebration {
       display: none;
       position: fixed;
       inset: 0;
-      background: linear-gradient(135deg, #0b1f3a, #1f4e8c);
+      background: #F5EFE6;
       text-align: center;
       padding: 100px 20px;
       font-family: Arial, sans-serif;
+      color: #8B4F5C;
+      overflow-y: auto;
+    }
+
+    #celebration h1 {
+      color: #8B4F5C;
+      text-transform: none;
     }
 
     .photo {
@@ -88,28 +119,35 @@
     .celebration-text {
       margin-top: 30px;
       font-size: 20px;
+      color: #8B4F5C;
     }
 
-    /* Ticker Borders */
+    /* Ticker Borders - Only visible on celebration page */
 
     .ticker {
       position: fixed;
       width: 100%;
       white-space: nowrap;
       overflow: hidden;
-      background: #122c54;
-      color: #9fc3ff;
+      background: #FFD1DC;
+      color: #8B4F5C;
       font-family: Arial, sans-serif;
       font-weight: bold;
       font-size: 14px;
       padding: 8px 0;
       z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    .ticker.visible {
+      opacity: 1;
     }
 
     .ticker span {
       display: inline-block;
-      padding-left: 100%;
-      animation: scroll 15s linear infinite;
+      animation: scroll 20s linear infinite;
     }
 
     .top-ticker {
@@ -122,7 +160,7 @@
 
     @keyframes scroll {
       from { transform: translateX(0); }
-      to { transform: translateX(-100%); }
+      to { transform: translateX(-50%); }
     }
 
   </style>
@@ -131,48 +169,75 @@
 <body>
 
   <!-- TOP TICKER -->
-  <div class="ticker top-ticker">
+  <div class="ticker top-ticker" id="topTicker">
     <span>
-      Somu • Moomoo • Sowmiya • Sowmesh • Miya • Bear • Sommers • So • 
-      Somu • Moomoo • Sowmiya • Sowmesh • Miya • Bear • Sommers • So • 
+      Somu ❤️ Moomoo ❤️ Sowmiya ❤️ Sowmesh ❤️ Miya ❤️ Bear ❤️ Sommers ❤️ So ❤️ 
+      Somu ❤️ Moomoo ❤️ Sowmiya ❤️ Sowmesh ❤️ Miya ❤️ Bear ❤️ Sommers ❤️ So ❤️ 
     </span>
   </div>
 
   <!-- CONTRACT PAGE -->
   <div id="contractPage" class="container">
 
-    <h1>RELATIONSHIP AGREEMENT</h1>
-    <p style="text-align:center;"><strong>Effective Date:</strong> 14 February 2026</p>
+    <h1>Relationship Agreement</h1>
+    <p style="text-align:center; font-size: 14px; margin-bottom: 40px;">
+      <strong>Effective Date:</strong> 14 February 2026
+    </p>
 
     <div class="contract">
 
       <p>This Agreement is entered into by and between:</p>
-      <p><strong>Party A:</strong> Me</p>
-      <p><strong>Party B:</strong> You (Extremely Attractive Individual)</p>
+      
+      <p style="margin-left: 40px;">
+        <strong>Party A:</strong> Me<br>
+        <strong>Party B:</strong> You (Extremely Attractive Individual)
+      </p>
 
       <hr>
 
-      <p><strong>1. Purpose</strong><br>
-      To formalize the mutual exchange of affection, support, loyalty, and excessive admiration.</p>
+      <p><strong>ARTICLE I: Purpose</strong></p>
+      <p>
+        To formalize the mutual exchange of affection, support, loyalty, and excessive admiration 
+        between the aforementioned parties.
+      </p>
 
-      <p><strong>2. Term</strong><br>
-      This Agreement shall remain in effect indefinitely, subject to cuddles.</p>
+      <p><strong>ARTICLE II: Term</strong></p>
+      <p>
+        This Agreement shall remain in effect indefinitely, subject to regular cuddles, 
+        date nights, and continued mutual appreciation.
+      </p>
 
-      <p><strong>3. Representations</strong><br>
-      Party B acknowledges she is very cute and will be admired accordingly.</p>
+      <p><strong>ARTICLE III: Representations and Warranties</strong></p>
+      <p>
+        Party B hereby acknowledges and affirms that she is very cute and will be admired 
+        accordingly. Party A represents that such admiration shall be sincere, consistent, 
+        and enthusiastic.
+      </p>
 
-      <p><strong>4. Dispute Resolution</strong><br>
-      Calm discussion, apologies, snacks, and immediate reconciliation.</p>
+      <p><strong>ARTICLE IV: Obligations of the Parties</strong></p>
+      <p>
+        Both parties agree to be kind, supportive, and present for one another. 
+        Laughter is mandatory. Sharing snacks is encouraged but not required.
+      </p>
+
+      <p><strong>ARTICLE V: Dispute Resolution</strong></p>
+      <p>
+        Any disputes shall be resolved through calm discussion, sincere apologies, 
+        comfort food, and immediate reconciliation.
+      </p>
+
+      <hr>
 
       <p>
-        By selecting "ACCEPT AGREEMENT", Party B enters into a Very Serious Relationship.
+        <strong>ACCEPTANCE:</strong> By selecting "ACCEPT AGREEMENT" below, Party B enters 
+        into a binding and Very Serious Relationship with Party A, effective immediately.
       </p>
 
     </div>
 
     <div class="buttons">
-      <button onclick="accept()">ACCEPT AGREEMENT</button>
-      <button id="decline">I DO NOT ACCEPT</button>
+      <button onclick="accept()">Accept Agreement</button>
+      <button id="decline">I Do Not Accept</button>
     </div>
 
   </div>
@@ -183,21 +248,26 @@
 
     <p class="celebration-text">
       You are now officially my Valentine.<br>
-      This decision is final.
+      This decision is final and binding.
     </p>
 
-    <img src="20251201_090836.jpg" alt="Us" class="photo">
+    <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 30px; flex-wrap: wrap;">
+      <img src="1771030836179_image.png" alt="Flowers" style="max-width: 200px; width: 90%; border-radius: 10px;">
+      <img src="20251201_090836.jpg" alt="Us" class="photo">
+      <img src="1771030836179_image.png" alt="Flowers" style="max-width: 200px; width: 90%; border-radius: 10px;">
+    </div>
 
     <p class="celebration-text">
-      I promise to keep choosing you.
+      I promise to keep choosing you,<br>
+      today and always.
     </p>
   </div>
 
   <!-- BOTTOM TICKER -->
-  <div class="ticker bottom-ticker">
+  <div class="ticker bottom-ticker" id="bottomTicker">
     <span>
-      Somu • Moomoo • Sowmiya • Sowmesh • Miya • Bear • Sommers • So • 
-      Somu • Moomoo • Sowmiya • Sowmesh • Miya • Bear • Sommers • So • 
+      Somu ❤️ Moomoo ❤️ Sowmiya ❤️ Sowmesh ❤️ Miya ❤️ Bear ❤️ Sommers ❤️ So ❤️ 
+      Somu ❤️ Moomoo ❤️ Sowmiya ❤️ Sowmesh ❤️ Miya ❤️ Bear ❤️ Sommers ❤️ So ❤️ 
     </span>
   </div>
 
@@ -237,6 +307,11 @@
     function accept() {
       document.getElementById("contractPage").style.display = "none";
       document.getElementById("celebration").style.display = "block";
+      
+      // Show the tickers
+      document.getElementById("topTicker").classList.add("visible");
+      document.getElementById("bottomTicker").classList.add("visible");
+      
       window.scrollTo(0, 0);
     }
   </script>
