@@ -142,26 +142,48 @@
 
   </div>
 
-  <script>
-    const declineBtn = document.getElementById("decline");
+ <script>
+  const declineBtn = document.getElementById("decline");
 
-    declineBtn.addEventListener("mouseover", function() {
-      const maxX = window.innerWidth - 200;
-      const maxY = window.innerHeight - 100;
+  function moveButton() {
+    const buttonWidth = declineBtn.offsetWidth;
+    const buttonHeight = declineBtn.offsetHeight;
 
-      const randomX = Math.random() * maxX;
-      const randomY = Math.random() * maxY;
+    const maxX = window.innerWidth - buttonWidth - 20;
+    const maxY = window.innerHeight - buttonHeight - 20;
 
-      declineBtn.style.left = randomX + "px";
-      declineBtn.style.top = randomY + "px";
-    });
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
 
-    function accept() {
-      document.getElementById("contractPage").style.display = "none";
-      document.getElementById("celebration").style.display = "block";
-      window.scrollTo(0, 0);
+    declineBtn.style.position = "fixed";
+    declineBtn.style.left = randomX + "px";
+    declineBtn.style.top = randomY + "px";
+  }
+
+  // Runs away when mouse gets close
+  document.addEventListener("mousemove", function(e) {
+    const rect = declineBtn.getBoundingClientRect();
+
+    const distance = Math.sqrt(
+      Math.pow(e.clientX - (rect.left + rect.width / 2), 2) +
+      Math.pow(e.clientY - (rect.top + rect.height / 2), 2)
+    );
+
+    if (distance < 120) {
+      moveButton();
     }
-  </script>
+  });
+
+  // Extra safety if somehow hovered
+  declineBtn.addEventListener("mouseover", moveButton);
+
+  function accept() {
+    document.getElementById("contractPage").style.display = "none";
+    document.getElementById("celebration").style.display = "block";
+    window.scrollTo(0, 0);
+  }
+</script>
+
 
 </body>
 </html>
