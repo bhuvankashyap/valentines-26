@@ -2,35 +2,47 @@
 <html>
 <head>
   <title>Relationship Agreement</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    body {
+    html, body {
       margin: 0;
-      padding: 60px 20px;
+      padding: 0;
+      height: 100%;
+      background: #0b1f3a;
+      color: white;
       font-family: "Times New Roman", serif;
-      background: white;
-      color: black;
-      text-align: center;
+      overflow-x: hidden;
     }
 
     h1 {
       letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .container {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: auto;
     }
 
     .contract {
-      max-width: 800px;
-      margin: 40px auto;
-      text-align: left;
-      line-height: 1.6;
+      line-height: 1.7;
       font-size: 18px;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: rgba(255,255,255,0.2);
+      margin: 30px 0;
     }
 
     .buttons {
       margin-top: 60px;
       position: relative;
       height: 200px;
+      text-align: center;
     }
 
     button {
@@ -38,14 +50,15 @@
       font-size: 16px;
       cursor: pointer;
       margin: 10px;
-      border: 1px solid black;
-      background: white;
+      border: 1px solid white;
+      background: transparent;
+      color: white;
       transition: all 0.2s ease;
     }
 
     button:hover {
-      background: black;
-      color: white;
+      background: white;
+      color: #0b1f3a;
     }
 
     #decline {
@@ -56,61 +69,103 @@
 
     #celebration {
       display: none;
-      padding: 60px 20px;
-      background: #ffe6f0;
-      min-height: 100vh;
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #0b1f3a, #1f4e8c);
+      text-align: center;
+      padding: 100px 20px;
       font-family: Arial, sans-serif;
     }
 
     .photo {
-      max-width: 400px;
+      max-width: 420px;
       width: 90%;
       border-radius: 20px;
       margin-top: 30px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
 
     .celebration-text {
       margin-top: 30px;
       font-size: 20px;
     }
+
+    /* Ticker Borders */
+
+    .ticker {
+      position: fixed;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      background: #122c54;
+      color: #9fc3ff;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 8px 0;
+      z-index: 999;
+    }
+
+    .ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 15s linear infinite;
+    }
+
+    .top-ticker {
+      top: 0;
+    }
+
+    .bottom-ticker {
+      bottom: 0;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+
   </style>
 </head>
 
 <body>
 
-  <!-- CONTRACT PAGE -->
+  <!-- TOP TICKER -->
+  <div class="ticker top-ticker">
+    <span>
+      Somu • Moomoo • Sowmiya • Sowmesh • Miya • Bear • Sommers • So • 
+      Somu • Moomoo • Sowmiya • Sowmesh • Miya • Bear • Sommers • So • 
+    </span>
+  </div>
 
-  <div id="contractPage">
+  <!-- CONTRACT PAGE -->
+  <div id="contractPage" class="container">
 
     <h1>RELATIONSHIP AGREEMENT</h1>
-    <p><strong>Effective Date:</strong> 14 February 2026</p>
+    <p style="text-align:center;"><strong>Effective Date:</strong> 14 February 2026</p>
 
     <div class="contract">
 
-      <p>
-        This Relationship Agreement ("Agreement") is entered into by and between:
-      </p>
-
+      <p>This Agreement is entered into by and between:</p>
       <p><strong>Party A:</strong> Me</p>
       <p><strong>Party B:</strong> You (Extremely Attractive Individual)</p>
 
       <hr>
 
       <p><strong>1. Purpose</strong><br>
-      To formalize the mutual exchange of affection, emotional support, memes, and excessive admiration.</p>
+      To formalize the mutual exchange of affection, support, loyalty, and excessive admiration.</p>
 
       <p><strong>2. Term</strong><br>
-      This Agreement shall commence immediately upon execution and remain in effect indefinitely, subject to cuddles.</p>
+      This Agreement shall remain in effect indefinitely, subject to cuddles.</p>
 
-      <p><strong>3. Representations & Warranties</strong><br>
-      Party B represents that she is, in fact, very cute and consents to being adored excessively.</p>
+      <p><strong>3. Representations</strong><br>
+      Party B acknowledges she is very cute and will be admired accordingly.</p>
 
       <p><strong>4. Dispute Resolution</strong><br>
-      All disputes shall be resolved via calm discussion, apologies, snacks, and cuddles.</p>
+      Calm discussion, apologies, snacks, and immediate reconciliation.</p>
 
       <p>
-        By selecting "ACCEPT AGREEMENT", Party B acknowledges that she is entering into a Very Serious Relationship™.
+        By selecting "ACCEPT AGREEMENT", Party B enters into a Very Serious Relationship.
       </p>
 
     </div>
@@ -123,67 +178,68 @@
   </div>
 
   <!-- CELEBRATION PAGE -->
-
   <div id="celebration">
-    <h1>CONTRACT EXECUTED SUCCESSFULLY 💖</h1>
+    <h1>CONTRACT EXECUTED SUCCESSFULLY</h1>
 
     <p class="celebration-text">
       You are now officially my Valentine.<br>
-      This decision is final.<br>
-      No refunds.
+      This decision is final.
     </p>
 
     <img src="20251201_090836.jpg" alt="Us" class="photo">
 
     <p class="celebration-text">
-      I promise to keep choosing you.<br>
-      Again and again.
+      I promise to keep choosing you.
     </p>
-
   </div>
 
- <script>
-  const declineBtn = document.getElementById("decline");
+  <!-- BOTTOM TICKER -->
+  <div class="ticker bottom-ticker">
+    <span>
+      Somu • Moomoo • Sowmiya • Sowmesh • Miya • Bear • Sommers • So • 
+      Somu • Moomoo • Sowmiya • Sowmesh • Miya • Bear • Sommers • So • 
+    </span>
+  </div>
 
-  function moveButton() {
-    const buttonWidth = declineBtn.offsetWidth;
-    const buttonHeight = declineBtn.offsetHeight;
+  <script>
+    const declineBtn = document.getElementById("decline");
 
-    const maxX = window.innerWidth - buttonWidth - 20;
-    const maxY = window.innerHeight - buttonHeight - 20;
+    function moveButton() {
+      const buttonWidth = declineBtn.offsetWidth;
+      const buttonHeight = declineBtn.offsetHeight;
 
-    const randomX = Math.random() * maxX;
-    const randomY = Math.random() * maxY;
+      const maxX = window.innerWidth - buttonWidth - 20;
+      const maxY = window.innerHeight - buttonHeight - 20;
 
-    declineBtn.style.position = "fixed";
-    declineBtn.style.left = randomX + "px";
-    declineBtn.style.top = randomY + "px";
-  }
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
 
-  // Runs away when mouse gets close
-  document.addEventListener("mousemove", function(e) {
-    const rect = declineBtn.getBoundingClientRect();
-
-    const distance = Math.sqrt(
-      Math.pow(e.clientX - (rect.left + rect.width / 2), 2) +
-      Math.pow(e.clientY - (rect.top + rect.height / 2), 2)
-    );
-
-    if (distance < 120) {
-      moveButton();
+      declineBtn.style.position = "fixed";
+      declineBtn.style.left = randomX + "px";
+      declineBtn.style.top = randomY + "px";
     }
-  });
 
-  // Extra safety if somehow hovered
-  declineBtn.addEventListener("mouseover", moveButton);
+    document.addEventListener("mousemove", function(e) {
+      const rect = declineBtn.getBoundingClientRect();
 
-  function accept() {
-    document.getElementById("contractPage").style.display = "none";
-    document.getElementById("celebration").style.display = "block";
-    window.scrollTo(0, 0);
-  }
-</script>
+      const distance = Math.sqrt(
+        Math.pow(e.clientX - (rect.left + rect.width / 2), 2) +
+        Math.pow(e.clientY - (rect.top + rect.height / 2), 2)
+      );
 
+      if (distance < 120) {
+        moveButton();
+      }
+    });
+
+    declineBtn.addEventListener("mouseover", moveButton);
+
+    function accept() {
+      document.getElementById("contractPage").style.display = "none";
+      document.getElementById("celebration").style.display = "block";
+      window.scrollTo(0, 0);
+    }
+  </script>
 
 </body>
 </html>
